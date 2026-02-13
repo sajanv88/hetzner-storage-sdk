@@ -127,4 +127,4 @@ jobs:
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       - name: Publish to npm
-        run: pnpm publish --no-git-checks
+        run: pnpm publish --no-git-checks --access public
