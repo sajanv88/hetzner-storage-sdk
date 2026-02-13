@@ -1,0 +1,44 @@
+{
+  "name": "hetzner-storage-sdk",
+  "version": "1.0.0",
+  "description": "TypeScript SDK for Hetzner Storage Box, Storage Share, and Object Storage",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "example": "ts-node examples/usage-examples.ts",
+    "dev": "tsc --watch",
+    "test": "jest",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "keywords": [
+    "hetzner",
+    "storage",
+    "webdav",
+    "nextcloud",
+    "s3",
+    "object-storage",
+    "typescript"
+  ],
+  "author": "Sajankumar Vijayan <work@sajankumarv.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.500.0",
+    "@aws-sdk/s3-request-presigner": "^3.500.0",
+    "axios": "^1.6.0",
+    "dotenv": "^17.2.4",
+    "ssh2-sftp-client": "^10.0.3",
+    "webdav": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/ssh2-sftp-client": "^9.0.6",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  }
+}
