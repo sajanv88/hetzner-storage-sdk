@@ -39,7 +39,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '24'
-          registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
 
       - name: Configure Git
@@ -112,22 +111,20 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
-        uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-        with:
-          tag_name: ${{ steps.bump-version.outputs.tag }}
-          release_name: Release ${{ steps.bump-version.outputs.tag }}
-          body: |
-            ## What's Changed
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create ${{ steps.bump-version.outputs.tag }} \
+            --title "Release ${{ steps.bump-version.outputs.tag }}" \
+            --notes "## What's Changed
 
-            ${{ steps.release-notes.outputs.changelog }}
+          ${{ steps.release-notes.outputs.changelog }}
 
-            **Full Changelog**: https://github.com/${{ github.repository }}/compare/${{ steps.bump-version.outputs.current-version }}...${{ steps.bump-version.outputs.tag }}
-          draft: false
-          prerelease: false
+          **Full Changelog**: https://github.com/${{ github.repository }}/compare/${{ steps.bump-version.outputs.current-version }}...${{ steps.bump-version.outputs.tag }}"
+
+      - name: Configure npm registry
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       - name: Publish to npm
         run: pnpm publish --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
