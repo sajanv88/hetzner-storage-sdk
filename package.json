@@ -1,6 +1,6 @@
 {
   "name": "hetzner-storage-sdk",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "TypeScript SDK for Hetzner Storage Box, Storage Share, and Object Storage",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
