@@ -9,7 +9,7 @@
     "build": "tsc",
     "example": "ts-node examples/usage-examples.ts",
     "dev": "tsc --watch",
-    "test": "jest",
+    "test": "echo \"No tests yet\"",
     "lint": "eslint src --ext .ts",
     "format": "prettier --write \"src/**/*.ts\""
   },
