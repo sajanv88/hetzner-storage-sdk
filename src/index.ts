@@ -22,12 +22,12 @@ export { S3ApiClient } from './utils/S3ApiClient';
 
 // Export environment configuration utilities
 export {
-  STORAGE_BOX_ENV,
-  STORAGE_SHARE_ENV,
-  OBJECT_STORAGE_ENV,
-  loadStorageBoxEnv,
-  loadStorageShareEnv,
-  loadObjectStorageEnv,
+    STORAGE_BOX_ENV,
+    STORAGE_SHARE_ENV,
+    OBJECT_STORAGE_ENV,
+    loadStorageBoxEnv,
+    loadStorageShareEnv,
+    loadObjectStorageEnv,
 } from './utils/env-config';
 
 /**
